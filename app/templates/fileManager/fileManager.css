@@ -1,15 +1,21 @@
+.fileManager {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #d7d7db;
+  width: 360px;
+}
+
 .uploadArea {
+  background: rgba(132, 193, 255, 0.1);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  border: 2px dashed rgba(12, 12, 13, 0.2);
-  margin: 0 0 10px;
-  height: 400px;
   overflow: scroll;
   transition: transform 150ms;
   flex: 1;
+  min-height: 90px;
 }
 
 .uploadArea__msg {
@@ -79,6 +85,7 @@
   text-align: left;
   font-size: 13px;
   color: var(--lightTextColor);
+  margin: 24px;
 }
 
 .uploadOptions--faded {
@@ -92,4 +99,11 @@
 
 .uploadCancel:hover {
   text-decoration: underline;
+}
+
+@media (max-device-width: 720px), (max-width: 720px) {
+  .fileManager {
+    height: 600px;
+    border: none;
+  }
 }

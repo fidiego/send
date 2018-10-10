@@ -9,6 +9,7 @@
   text-align: center;
   justify-content: center;
   transition: background 100ms;
+  margin: 24px;
 }
 
 .signupPromo:hover {
