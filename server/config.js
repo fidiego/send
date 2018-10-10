@@ -1,14 +1,15 @@
-const convict = require('convict');
-const { tmpdir } = require('os');
-const path = require('path');
-const { randomBytes } = require('crypto');
+const convict = require("convict");
+const { tmpdir } = require("os");
+const path = require("path");
+const { randomBytes } = require("crypto");
 
 const conf = convict({
   s3_bucket: {
     format: String,
-    default: '',
-    env: 'S3_BUCKET'
+    default: "",
+    env: "S3_BUCKET"
   },
+<<<<<<< HEAD
   gcs_bucket: {
     format: String,
     default: '',
@@ -60,25 +61,28 @@ const conf = convict({
     env: 'MAX_ARCHIVES_PER_USER'
   },
   redis_host: {
+=======
+  redis_url: {
+>>>>>>> gitignore: ignore vim swap files
     format: String,
-    default: 'localhost',
-    env: 'REDIS_HOST'
+    default: "redis://localhost:6379",
+    env: "REDIS_URL"
   },
   redis_event_expire: {
     format: Boolean,
     default: false,
-    env: 'REDIS_EVENT_EXPIRE'
+    env: "REDIS_EVENT_EXPIRE"
   },
   listen_address: {
-    format: 'ipaddress',
-    default: '0.0.0.0',
-    env: 'IP_ADDRESS'
+    format: "ipaddress",
+    default: "0.0.0.0",
+    env: "IP_ADDRESS"
   },
   listen_port: {
-    format: 'port',
+    format: "port",
     default: 1443,
-    arg: 'port',
-    env: 'PORT'
+    arg: "port",
+    env: "PORT"
   },
   amplitude_id: {
     format: String,
@@ -87,45 +91,56 @@ const conf = convict({
   },
   analytics_id: {
     format: String,
-    default: '',
-    env: 'GOOGLE_ANALYTICS_ID'
+    default: "",
+    env: "GOOGLE_ANALYTICS_ID"
   },
   sentry_id: {
     format: String,
-    default: '',
-    env: 'SENTRY_CLIENT'
+    default: "",
+    env: "SENTRY_CLIENT"
   },
   sentry_dsn: {
     format: String,
-    default: '',
-    env: 'SENTRY_DSN'
+    default: "",
+    env: "SENTRY_DSN"
   },
   env: {
-    format: ['production', 'development', 'test'],
-    default: 'development',
-    env: 'NODE_ENV'
+    format: ["production", "development", "test"],
+    default: "development",
+    env: "NODE_ENV"
   },
   max_file_size: {
     format: Number,
+<<<<<<< HEAD
     default: 1024 * 1024 * 1024 * 2.5,
     env: 'MAX_FILE_SIZE'
+=======
+    default: 1024 * 1024 * 1024 * 2,
+    env: "MAX_FILE_SIZE"
+>>>>>>> gitignore: ignore vim swap files
   },
   anon_max_file_size: {
     format: Number,
+<<<<<<< HEAD
     default: 1024 * 1024 * 1024,
     env: 'ANON_MAX_FILE_SIZE'
+=======
+    default: 86400,
+    env: "EXPIRE_SECONDS"
+>>>>>>> gitignore: ignore vim swap files
   },
   l10n_dev: {
     format: Boolean,
     default: false,
-    env: 'L10N_DEV'
+    env: "L10N_DEV"
   },
   base_url: {
-    format: 'url',
-    default: 'https://send.firefox.com',
-    env: 'BASE_URL'
+    format: "url",
+    default: "https://send.firefox.com",
+    env: "BASE_URL"
   },
   file_dir: {
+<<<<<<< HEAD
     format: 'String',
     default: `${tmpdir()}${path.sep}send-${randomBytes(4).toString('hex')}`,
     env: 'FILE_DIR'
@@ -149,11 +164,16 @@ const conf = convict({
     format: String,
     default: '',
     env: 'SURVEY_URL'
+=======
+    format: "String",
+    default: `${tmpdir()}${path.sep}send-${randomBytes(4).toString("hex")}`,
+    env: "FILE_DIR"
+>>>>>>> gitignore: ignore vim swap files
   }
 });
 
 // Perform validation
-conf.validate({ allowed: 'strict' });
+conf.validate({ allowed: "strict" });
 
 const props = conf.getProperties();
 module.exports = props;

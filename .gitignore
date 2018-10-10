@@ -6,10 +6,27 @@ dist
 .nyc_output
 .tox
 .pytest_cache
-*.iml
-android/app/src/main/assets
-ios/send-ios/assets/ios.js
-ios/send-ios/assets/vendor.js
-ios/send-ios.xcodeproj/project.xcworkspace/xcuserdata/*
-ios/send-ios.xcodeproj/xcuserdata/*
-test/integration/downloads
+
+# Created by https://www.gitignore.io/api/vim
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+
+# End of https://www.gitignore.io/api/vim

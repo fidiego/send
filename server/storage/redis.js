@@ -1,14 +1,15 @@
-const promisify = require('util').promisify;
+const promisify = require("util").promisify;
 
 module.exports = function(config) {
   const redis_lib =
-    config.env === 'development' && config.redis_host === 'localhost'
-      ? 'redis-mock'
-      : 'redis';
+    config.env === "development" && config.redis_host === "localhost"
+      ? "redis-mock"
+      : "redis";
 
   //eslint-disable-next-line security/detect-non-literal-require
   const redis = require(redis_lib);
   const client = redis.createClient({
+<<<<<<< HEAD
     host: config.redis_host,
     retry_strategy: options => {
       if (options.total_retry_time > 10000) {
@@ -18,6 +19,10 @@ module.exports = function(config) {
 
       return 500;
     }
+=======
+    url: config.redis_url,
+    connect_timeout: 10000
+>>>>>>> gitignore: ignore vim swap files
   });
 
   client.ttlAsync = promisify(client.ttl);
