@@ -9,20 +9,15 @@ module.exports = function(config) {
   //eslint-disable-next-line security/detect-non-literal-require
   const redis = require(redis_lib);
   const client = redis.createClient({
-<<<<<<< HEAD
     host: config.redis_host,
     retry_strategy: options => {
       if (options.total_retry_time > 10000) {
-        client.emit('error', 'Retry time exhausted');
-        return new Error('Retry time exhausted');
+        client.emit("error", "Retry time exhausted");
+        return new Error("Retry time exhausted");
       }
 
       return 500;
     }
-=======
-    url: config.redis_url,
-    connect_timeout: 10000
->>>>>>> gitignore: ignore vim swap files
   });
 
   client.ttlAsync = promisify(client.ttl);
